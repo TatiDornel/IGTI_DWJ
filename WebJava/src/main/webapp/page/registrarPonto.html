@@ -1,0 +1,209 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="tati">
+
+    
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="tati">
+
+    
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    
+	<script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script> 
+	<script type="text/javascript" src="../js/bootstrap.js"></script> 
+	 <script type="text/javascript" src="../js/main.js"></script>
+	
+	
+	<script type="text/javascript">
+
+	getPonto();
+	
+$(document).ready(function() {	
+
+	$('a[name=modal]').click(function(e) {
+		e.preventDefault();
+		
+		var id = $(this).attr('href');
+	
+		var maskHeight = $(document).height();
+		var maskWidth = $(window).width();
+	
+		$('#mask').css({'width':maskWidth,'height':maskHeight});
+
+		$('#mask').fadeIn(1000);	
+		$('#mask').fadeTo("slow",0.8);	
+	
+		//Get the window height and width
+		var winH = $(window).height();
+		var winW = $(window).width();
+              
+		$(id).css('top',  winH/2-$(id).height()/2);
+		$(id).css('left', winW/2-$(id).width()/2);
+	
+		$(id).fadeIn(2000); 
+	
+	});
+	
+	$('.window .close').click(function (e) {
+		e.preventDefault();
+		
+		$('#mask').hide();
+		$('.window').hide();
+	});		
+	
+	$('#mask').click(function () {
+		$(this).hide();
+		$('.window').hide();
+	});			
+	
+});
+
+</script>
+
+    <style type="text/css">
+      body {
+        padding-top: 40px;
+        padding-bottom: 40px;
+        background-color: #f5f5f5;
+      }
+
+      .form-signin {
+        max-width: 700px;
+        padding: 19px 29px 29px;
+        margin: 0 auto 20px;
+        background-color: #fff;
+        border: 1px solid #e5e5e5;
+        -webkit-border-radius: 5px;
+           -moz-border-radius: 5px;
+                border-radius: 5px;
+        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+           -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+                box-shadow: 0 1px 2px rgba(0,0,0,.05);
+      }
+      .form-signin .form-signin-heading,
+      .form-signin .checkbox {
+        margin-bottom: 10px;
+      }
+      .form-signin input[type="text"],
+      .form-signin input[type="password"] {
+        font-size: 16px;
+        height: auto;
+        margin-bottom: 15px;
+        padding: 7px 9px;
+      }
+<style type="text/css">
+body {
+font-family:verdana;
+font-size:15px;
+}
+
+a {color:#333; text-decoration:none}
+a:hover {color:#ccc; text-decoration:none}
+
+#mask {
+  position:absolute;
+  left:0;
+  top:0;
+  z-index:9000;
+  background-color:#000;
+  display:none;
+}
+  
+#boxes .window {
+  position:absolute;
+  left:0;
+  top:0;
+  width:440px;
+  height:200px;
+  display:none;
+  z-index:9999;
+  padding:20px;
+}
+
+#boxes #dialog {
+  width:375px; 
+  height:203px;
+  padding:10px;
+  background-color:#ffffff;
+}
+
+#boxes #dialog1 {
+  width:375px; 
+  height:203px;
+}
+
+#dialog1 .d-header {
+  background:url(login-header.png) no-repeat 0 0 transparent; 
+  width:375px; 
+  height:150px;
+}
+
+#dialog1 .d-header input {
+  position:relative;
+  top:60px;
+  left:100px;
+  border:3px solid #cccccc;
+  height:22px;
+  width:200px;
+  font-size:15px;
+  padding:5px;
+  margin-top:4px;
+}
+
+#dialog1 .d-blank {
+  float:left;
+  background:url(login-blank.png) no-repeat 0 0 transparent; 
+  width:267px; 
+  height:53px;
+}
+
+#dialog1 .d-login {
+  float:left;
+  width:108px; 
+  height:53px;
+}
+
+#boxes #dialog2 {
+  background:url(notice.png) no-repeat 0 0 transparent; 
+  width:326px; 
+  height:229px;
+  padding:50px 0 20px 25px;
+}
+.close{display:block; text-align:right;}
+
+</style>
+
+  </head>
+
+  <body>
+	
+    <div class="container">
+
+      <form class="form-signin" >
+        <h2 class="form-signin-heading">Registrar Ponto</h2>
+         <input type="hidden" id="id">
+        
+        <input type="text" class="input-block-level" placeholder="Funcionário" id="funcionario" readonly>
+        
+        <input type="text" class="input-block-level" placeholder="Data" id="data" readonly>
+        
+        <input type="text" class="input-block-level" placeholder="Entrada" id="hora_1" readonly>
+        <input type="text" class="input-block-level" placeholder="Intervalo" id="hora_2" readonly>
+        <input type="text" class="input-block-level" placeholder="Retorno" id="hora_3" readonly>
+        <input type="text" class="input-block-level" placeholder="Saida" id="hora_4" readonly>
+        <button class="btn btn-large btn-primary" type="button" onclick="registrarPonto();" >Registrar</button>
+         
+         
+      </form>
+
+    </div> 
+
+  </body>
+</html>
